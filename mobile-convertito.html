@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convertito Mobile</title>
+    <style>
+      @font-face {
+        font-family: 'GT Maru';
+        src: url('https://cdn.gradis.art/fonts/GT-Maru-Mono.woff') format('woff');
+        font-weight: 400;
+        font-style: normal;
+        font-display: fallback;
+      }
+      
+      @font-face {
+        font-family: 'Maru-Mega-Mini';
+        src: url('https://cdn.gradis.art/fonts/GT-Maru-Proportional.woff') format('woff');
+        font-weight: 400;
+        font-style: normal;
+        font-display: fallback;
+      }
+      
+      @font-face {
+        font-family: 'GT Maru Mega';
+        src: url('https://cdn.gradis.art/fonts/GT-Maru-Mega-Maxi.woff') format('woff');
+        font-weight: 500;
+        font-style: normal;
+        letter-spacing: 0px;
+      }
+      *{
+        margin: 0;
+        padding: 0;
+        font-family: "GT Maru";
+      }
+      #wrapper{
+        display:grid;
+        justify-content:center;
+        height:100vh;
+        padding: 16px;
+      }
+      #container {
+        width: 100%;
+        height: 60vh;
+        display:grid;
+        justify-content:center;
+        place-items:center;
+      }
+      .text {
+        color: white;
+        text-align: left;
+        width:100%;
+        margin: 0 8px 10px 8px;
+        padding-left:16px;
+        padding-right:16px;
+        font-size: 14px;
+      }
+      .button{
+        color: white;
+        margin-top: 20px;
+        height: 40px;
+        width: 80px;
+        border-radius: 50px;
+        border: 1px solid white;
+      }
+      #gradis {
+        margin-top:40px;
+      }
+    </style>
+</head>
+<body>
+  <div id="wrapper">
+    <div id="container">
+      <div class="text">Convertito works on desktop only.</div>
+      <div class="text">You can enjoy a selection of mobile friendly gradis on this device for now. Come back from a computer to get the full experience</div>
+      <img id="gradis" src="" width="348"/>
+      <button class="button" onclick="setGradis()">
+        random
+      </button>
+     </div>
+  </div>
+  <script type="text/javascript">
+    const gradisBackground = {
+      "1": "rgb(4,28,0)",
+      "2": "rgb(4,28,0)",
+      "3": "rgb(61,61,61)",
+      "4": "rgb(0,11,41)",
+      "5": "rgb(73,56,235)",
+      "6": "rgb(9,38,36)",
+      "7": "rgb(193,235,56)",
+      "8": "rgb(39,0,41)",
+      "9": "rgb(48,0,0)",
+      "10": "rgb(61,61,61)",
+      "11": "rgb(9,38,36)",
+      "12": "rgb(0,11,41)",
+      "13": "rgb(9,38,36)",
+      "14": "rgb(0,11,41)",
+      "15": "rgb(61,61,61)",
+      "16": "rgb(9,38,36)",
+      "17": "rgb(9,38,36)",
+      "18": "rgb(0,0,0)",
+      "19": "rgb(0,11,41)",
+      "20": "rgb(9,38,36)",
+      "21": "rgb(48,0,0)",
+      "22": "rgb(0,11,41)",
+      "23": "rgb(39,0,41)",
+      "24": "rgb(39,0,41)",
+      "25": "rgb(193,235,56)",
+      "26": "rgb(9,38,36)",
+      "27": "rgb(73,56,235)",
+      "28": "rgb(0,11,41)",
+      "29": "rgb(61,61,61)",
+      "30": "rgb(61,61,61)",
+      "31": "rgb(48,0,0)",
+      "32": "rgb(39,0,41)",
+      "33": "rgb(193,235,56)",
+      "34": "rgb(39,0,41)",
+      "35": "rgb(39,0,41)",
+      "36": "rgb(0,0,0)",
+      "37": "rgb(193,235,56)",
+      "38": "rgb(73,56,235)",
+      "39": "rgb(61,61,61)",
+      "40": "rgb(61,61,61)",
+      "41": "rgb(39,0,41)",
+      "42": "rgb(39,0,41)",
+      "43": "rgb(4,28,0)",
+      "44": "rgb(0,0,0)",
+      "45": "rgb(61,61,61)",
+      "46": "rgb(4,28,0)",
+      "47": "rgb(39,0,41)",
+      "48": "rgb(0,0,0)",
+      "49": "rgb(73,56,235)",
+      "50": "rgb(4,28,0)",
+      "51": "rgb(0,0,0)",
+      "52": "rgb(0,11,41)",
+      "53": "rgb(9,38,36)",
+      "54": "rgb(61,61,61)",
+      "55": "rgb(39,0,41)",
+      "56": "rgb(61,61,61)",
+      "57": "rgb(73,56,235)",
+      "58": "rgb(39,0,41)",
+      "59": "rgb(0,0,0)",
+      "60": "rgb(0,0,0)",
+      "61": "rgb(0,0,0)",
+      "62": "rgb(61,61,61)",
+      "63": "rgb(4,28,0)",
+      "64": "rgb(4,28,0)",
+      "65": "rgb(9,38,36)",
+      "66": "rgb(9,38,36)",
+      "67": "rgb(4,28,0)",
+      "68": "rgb(0,11,41)",
+      "69": "rgb(48,0,0)",
+}
+
+    function setGradis () {
+      const gifId = Math.floor(Math.random() * 69) + 1;
+     console.log(gifId);
+      const gradis = document.getElementById("gradis");
+      document.body.style.background = gradisBackground[gifId.toString()];
+      const button = document.querySelector(".button");
+      button.style.background = gradisBackground[gifId.toString()];
+      gradis.src = `gifs/${gifId}.gif`;
+      console.log(gradisBackground[gifId.toString()]);
+    }
+
+    setGradis();
+  </script
+</body>
+</html>

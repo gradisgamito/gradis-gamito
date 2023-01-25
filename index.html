@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Gradis 3D Convertito</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://unpkg.com/web3@latest/dist/web3.min.js"></script>
+  </head>
+  <body style="text-align: center">
+    <canvas id="unity-canvas" style="background: #231f20"></canvas>
+    <script src="web3/index.js"></script>
+    <script src="Build/GradisBuildWebGlMinimal.loader.js"></script>
+    <script>
+      window.addEventListener("DOMContentLoaded", async () => {
+        console.log("cargado");
+        /* if (typeof window.ethereum !== "undefined") { */
+        /*   const accounts = await ethereum.request({ */
+        /*     method: "eth_requestAccounts", */
+        /*   }); */
+        /*   console.log("current wallet: ", accounts[0]); */
+        /*   window.web3 = new Web3(window.ethereum); */
+        /*   return true; */
+        /* } else { */
+        /*   alert("MetaMask is not installed"); */
+        /* } */
+      });
+      createUnityInstance(document.querySelector("#unity-canvas"), {
+        dataUrl: "Build/GradisBuildWebGlMinimal.data",
+        frameworkUrl: "Build/GradisBuildWebGlMinimal.framework.js",
+        codeUrl: "Build/GradisBuildWebGlMinimal.wasm",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "DefaultCompany",
+        productName: "Gradis",
+        productVersion: "0.1",
+        // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
+        // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
+      });
+    </script>
+    <script src="userScreen.js"></script>
+  </body>
+</html>
